@@ -59,6 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="showHourPicker"
             android:text="@string/select_hour" />
 
     </LinearLayout>
@@ -68,7 +69,7 @@
         android:layout_width="198dp"
         android:layout_height="53dp"
         android:layout_marginTop="20dp"
-        android:onClick="saveWidget"
+        android:onClick="saveWidgetData"
         android:text="@string/save_selection"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
