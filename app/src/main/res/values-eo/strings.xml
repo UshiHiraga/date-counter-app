@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="event_today">Hodiaŭ</string>
+    <string name="event_description">Priskribo</string>
+    <string name="event_distance">tagoj antaŭ</string>
+    <string name="event_days">3</string>
+    <string name="event_title">Titolo de la evento</string>
+    <string name="widget_title">Nombrilo de tagoj</string>
+    <string name="save_selection">Aldoni widget</string>
+    <string name="select_hour">Elekti horon</string>
+    <string name="select_date">Elekti daton</string>
+    <string name="configuration_title">Agordo</string>
+    <string name="app_name">Nombri daton</string>
+</resources>

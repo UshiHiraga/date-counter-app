@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Contar fecha</string>
+    <string name="configuration_title">Configuración</string>
+    <string name="select_date">Escoger fecha</string>
+    <string name="select_hour">Escoger hora</string>
+    <string name="save_selection">Añadir widget</string>
+    <string name="widget_title">Contador de días</string>
+    <string name="event_title">Título del evento</string>
+    <string name="event_days">3</string>
+    <string name="event_distance">días atrás</string>
+    <string name="event_description">Descripción</string>
+    <string name="event_today">Hoy</string>
+</resources>
