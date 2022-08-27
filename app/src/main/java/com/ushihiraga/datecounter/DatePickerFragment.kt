@@ -14,6 +14,6 @@ class DatePickerFragment(val onActionListener: (LocalDate) -> Unit) : DialogFrag
     }
 
     override fun onDateSet(view: DatePicker, year: Int, month: Int, day: Int) {
-        onActionListener(LocalDate.of(year, month, day))
+        onActionListener(LocalDate.of(year, month + 1, day))
     }
 }
