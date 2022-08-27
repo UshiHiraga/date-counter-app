@@ -13,32 +13,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DateCounter"
         tools:targetApi="31">
-        <activity
-            android:name=".MainActivity2"
-            android:exported="false"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.DateCounter.NoActionBar" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:exported="true"
             android:name=".ConfigurationActivity"
-            android:label="@string/config_view_title">
+            android:exported="true"
+            android:label="@string/configuration_title">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
 
         <receiver
-            android:exported="true"
             android:name=".MainWidget"
+            android:exported="true"
             android:label="@string/widget_title">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -49,5 +45,4 @@
                 android:resource="@xml/widget_info" />
         </receiver>
     </application>
-
 </manifest>
