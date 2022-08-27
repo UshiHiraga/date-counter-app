@@ -1,16 +1,23 @@
 <resources>
-    <string name="app_name">Date Counter</string>
-    <!--    Activities titles-->
+    <string name="app_name">Count date</string>
     <string name="configuration_title">Configuration</string>
-    <string name="main_title">Main</string>
-    <!--    Activity Configuration-->
+
     <string name="select_date">Choose date</string>
     <string name="select_hour">Choose hour</string>
     <string name="save_selection">Add widget</string>
-    <!--    Widget text-->
     <string name="widget_title">Count days</string>
     <string name="event_title">Event title</string>
     <string name="event_days">3</string>
     <string name="event_distance">days ago</string>
     <string name="event_description">Description</string>
+
+    <string name="event_today">Today</string>
+    <plurals name="event_future">
+        <item quantity="one">day left</item>
+        <item quantity="other">days left</item>
+    </plurals>
+    <plurals name="event_past">
+        <item quantity="one">day ago</item>
+        <item quantity="other">days ago</item>
+    </plurals>
 </resources>
