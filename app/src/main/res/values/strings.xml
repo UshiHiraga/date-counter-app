@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Count date</string>
+    <string name="app_name">Date counter</string>
     <string name="configuration_title">Configuration</string>
     <string name="select_date">Choose date</string>
     <string name="select_hour">Choose hour</string>
@@ -10,7 +10,8 @@
     <string name="event_distance">days ago</string>
     <string name="event_description">Description</string>
     <string name="alert_title">Title cannot be empty</string>
-    <string name="alert_hourdate">Hour and date must be set</string>
+    <string name="default_hour" translatable="false">16:00</string>
+    <string name="default_date" translatable="false">2001-09-11</string>
 
     <string name="event_today">Today</string>
     <plurals name="event_future">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Contar fecha</string>
+    <string name="app_name">Contador de fecha</string>
     <string name="configuration_title">Configuración</string>
     <string name="select_date">Escoger fecha</string>
     <string name="select_hour">Escoger hora</string>
@@ -21,5 +21,4 @@
         <item quantity="other">días atrás</item>
     </plurals>
     <string name="alert_title">El título no puede estar vacío</string>
-    <string name="alert_hourdate">Se debe establecer la hora y la fecha</string>
 </resources>
