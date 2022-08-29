@@ -11,4 +11,15 @@
     <string name="select_date">Elekti daton</string>
     <string name="configuration_title">Agordo</string>
     <string name="app_name">Nombri daton</string>
+
+    <plurals name="event_future">
+        <item quantity="one">restanta tago</item>
+        <item quantity="other">restantaj tagoj</item>
+    </plurals>
+    <plurals name="event_past">
+        <item quantity="one">tago antaŭ</item>
+        <item quantity="other">tadoj antaŭ</item>
+    </plurals>
+    <string name="alert_title">Titolo ne povas esti malplena</string>
+    <string name="alert_hourdate">Oni devas agordi horon kaj daton</string>
 </resources>

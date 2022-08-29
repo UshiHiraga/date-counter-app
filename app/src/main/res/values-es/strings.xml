@@ -11,4 +11,15 @@
     <string name="event_distance">días atrás</string>
     <string name="event_description">Descripción</string>
     <string name="event_today">Hoy</string>
+
+    <plurals name="event_future">
+        <item quantity="one">día restante</item>
+        <item quantity="other">días restantes</item>
+    </plurals>
+    <plurals name="event_past">
+        <item quantity="one">día atrás</item>
+        <item quantity="other">días atrás</item>
+    </plurals>
+    <string name="alert_title">El título no puede estar vacío</string>
+    <string name="alert_hourdate">Se debe establecer la hora y la fecha</string>
 </resources>

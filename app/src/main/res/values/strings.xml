@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Count date</string>
     <string name="configuration_title">Configuration</string>
-
     <string name="select_date">Choose date</string>
     <string name="select_hour">Choose hour</string>
     <string name="save_selection">Add widget</string>
@@ -10,6 +9,8 @@
     <string name="event_days">3</string>
     <string name="event_distance">days ago</string>
     <string name="event_description">Description</string>
+    <string name="alert_title">Title cannot be empty</string>
+    <string name="alert_hourdate">Hour and date must be set</string>
 
     <string name="event_today">Today</string>
     <plurals name="event_future">
