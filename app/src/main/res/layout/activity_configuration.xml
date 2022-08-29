@@ -35,28 +35,27 @@
         app:layout_constraintTop_toBottomOf="@+id/eventTitleInput" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:id="@+id/linearLayout2"
+        android:layout_width="394dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="32dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eventDescriptionInput">
 
-        <Button
-            android:id="@+id/eventDateInput"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/eventHourView"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="showDatePicker"
-            android:text="@string/select_date" />
+            android:gravity="center"
+            android:text="@string/default_hour"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/eventHourInput"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="showHourPicker"
@@ -64,13 +63,44 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <TextView
+            android:id="@+id/eventDateView"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/default_date"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/eventDateInput"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="showDatePicker"
+            android:text="@string/select_date" />
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/eventSave"
         android:layout_width="198dp"
         android:layout_height="53dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:onClick="saveWidgetData"
         android:text="@string/save_selection"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
