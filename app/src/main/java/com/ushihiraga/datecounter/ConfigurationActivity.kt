@@ -18,32 +18,28 @@ class ConfigurationActivity : AppCompatActivity() {
     private var eventDate = LocalDate.now()
     private var eventHour = LocalTime.now()
 
-    private val eventTitleInput = findViewById<EditText>(R.id.eventTitleInput)
-    private val eventDescriptionInput = findViewById<EditText>(R.id.eventDescriptionInput)
-    private val eventHourView = findViewById<TextView>(R.id.eventHourView)
-    private val eventDateView = findViewById<TextView>(R.id.eventDateView)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_configuration)
         setResult(Activity.RESULT_CANCELED)
 
-        eventHourView.text = eventHour.toString()
-        eventDateView.text = eventDate.toString()
+        findViewById<TextView>(R.id.eventHourView).text = eventHour.hour.toString() + ":" + eventHour.minute.toString()
+        findViewById<TextView>(R.id.eventDateView).text = eventDate.toString()
     }
 
     fun saveWidgetData(view: View) {
-        val eventTitle = eventTitleInput.text.toString()
+        val eventTitle = findViewById<EditText>(R.id.eventTitleInput).text.toString()
 
         if (eventTitle.isEmpty()) {
             Toast.makeText(this, R.string.alert_title, Toast.LENGTH_LONG).show()
             return
         }
 
+        val eventDescription = findViewById<EditText>(R.id.eventDescriptionInput).text.toString()
         val widgetId = intent.extras?.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID) ?: AppWidgetManager.INVALID_APPWIDGET_ID
         val widgetData = mapOf(
             "title" to eventTitle,
-            "description" to eventDescriptionInput.text.toString(),
+            "description" to eventDescription,
             "date" to eventDate.toString(),
             "hour" to eventHour.toString()
         )
@@ -69,7 +65,7 @@ class ConfigurationActivity : AppCompatActivity() {
     fun showDatePicker(view: View) {
         val onDateSelected = { selectedDate: LocalDate ->
             eventDate = selectedDate
-            eventDateView.text = selectedDate.toString()
+            findViewById<TextView>(R.id.eventDateView).text = selectedDate.toString()
         }
 
         val fragment = DatePickerFragment(onDateSelected)
@@ -79,7 +75,7 @@ class ConfigurationActivity : AppCompatActivity() {
     fun showHourPicker(view: View) {
         val onHourSelected = { selectedHour: LocalTime ->
             eventHour = selectedHour
-            eventHourView.text = selectedHour.toString()
+            findViewById<TextView>(R.id.eventHourView).text = selectedHour.toString()
         }
 
         val fragment = TimePickerFragment(onHourSelected)
