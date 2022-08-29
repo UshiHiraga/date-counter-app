@@ -7,10 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.RemoteViews
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import java.time.LocalDate
 import java.time.LocalTime
@@ -20,59 +17,42 @@ import kotlin.math.abs
 class ConfigurationActivity : AppCompatActivity() {
     private var eventDate = LocalDate.now()
     private var eventHour = LocalTime.now()
-    private var isDateSet = false
-    private var isHourSet = false
+
+    private val eventTitleInput = findViewById<EditText>(R.id.eventTitleInput)
+    private val eventDescriptionInput = findViewById<EditText>(R.id.eventDescriptionInput)
+    private val eventHourView = findViewById<TextView>(R.id.eventHourView)
+    private val eventDateView = findViewById<TextView>(R.id.eventDateView)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_configuration)
         setResult(Activity.RESULT_CANCELED)
-    }
 
-    private fun absoluteDistanceBetweenDates(newDate: LocalDate): Int {
-        return abs(ChronoUnit.DAYS.between(newDate, LocalDate.now()).toInt())
-    }
-
-    private fun distanceBetweenLabel(newDate: LocalDate): String {
-        val difference = absoluteDistanceBetweenDates(newDate)
-        val nowTime = LocalDate.now()
-
-        return if (newDate.isEqual(nowTime)) {
-            getString(R.string.event_today)
-        } else if (newDate.isBefore(nowTime)) {
-            resources.getQuantityString(R.plurals.event_past, difference)
-        } else {
-            //"The event will be in $difference days"
-            resources.getQuantityString(R.plurals.event_future, difference)
-        }
+        eventHourView.text = eventHour.toString()
+        eventDateView.text = eventDate.toString()
     }
 
     fun saveWidgetData(view: View) {
-        val eventTitle: String = findViewById<EditText>(R.id.eventTitleInput).text.toString()
-        val eventDescription: String = findViewById<EditText>(R.id.eventDescriptionInput).text.toString()
-        val widgetId = intent.extras?.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID) ?: AppWidgetManager.INVALID_APPWIDGET_ID
-        val widgetData = mapOf(
-            "title" to eventTitle,
-            "description" to eventDescription,
-            "date" to eventDate.toString(),
-            "hour" to eventHour.toString()
-        )
+        val eventTitle = eventTitleInput.text.toString()
 
         if (eventTitle.isEmpty()) {
             Toast.makeText(this, R.string.alert_title, Toast.LENGTH_LONG).show()
             return
         }
 
-        if (!isDateSet || !isHourSet) {
-            Toast.makeText(this, R.string.alert_hourdate, Toast.LENGTH_LONG).show()
-            return
-        }
+        val widgetId = intent.extras?.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID) ?: AppWidgetManager.INVALID_APPWIDGET_ID
+        val widgetData = mapOf(
+            "title" to eventTitle,
+            "description" to eventDescriptionInput.text.toString(),
+            "date" to eventDate.toString(),
+            "hour" to eventHour.toString()
+        )
 
         // The required data is complete
         val views = RemoteViews(this.packageName, R.layout.layout_widget)
         views.setTextViewText(R.id.eventTitle, eventTitle)
         views.setTextViewText(R.id.eventDays, absoluteDistanceBetweenDates(eventDate).toString())
-        views.setTextViewText(R.id.eventDistance, distanceBetweenLabel(eventDate))
+        views.setTextViewText(R.id.eventDistance, distanceBetweenLabel(this, eventDate))
 
         val storage = getSharedPreferences(this.packageName + ".widgetsInfo", Context.MODE_PRIVATE)
         with(storage.edit()) {
@@ -89,8 +69,7 @@ class ConfigurationActivity : AppCompatActivity() {
     fun showDatePicker(view: View) {
         val onDateSelected = { selectedDate: LocalDate ->
             eventDate = selectedDate
-            isDateSet = true
-            findViewById<Button>(R.id.eventDateInput).text = selectedDate.toString()
+            eventDateView.text = selectedDate.toString()
         }
 
         val fragment = DatePickerFragment(onDateSelected)
@@ -100,8 +79,7 @@ class ConfigurationActivity : AppCompatActivity() {
     fun showHourPicker(view: View) {
         val onHourSelected = { selectedHour: LocalTime ->
             eventHour = selectedHour
-            isHourSet = true
-            findViewById<Button>(R.id.eventHourInput).text = selectedHour.toString()
+            eventHourView.text = selectedHour.toString()
         }
 
         val fragment = TimePickerFragment(onHourSelected)
