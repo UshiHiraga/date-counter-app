@@ -11,28 +11,28 @@
         android:id="@+id/eventTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:layout_marginBottom="4dp"
         android:text="@string/event_title"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp" />
+        android:textColor="@color/white"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/eventDays"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:text="@string/event_days"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:textSize="20sp" />
 
     <TextView
         android:id="@+id/eventDistance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="@string/event_distance"
+        android:textSize="12sp"
         android:textAlignment="center"
-        android:textColor="#FFFFFF" />
+        android:textColor="@color/white" />
 </LinearLayout>
