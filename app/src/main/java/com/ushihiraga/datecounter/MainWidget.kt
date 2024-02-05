@@ -20,8 +20,10 @@ class MainWidget : AppWidgetProvider() {
 
             val decodedInfo = decodeStringToMap(widgetInfo)
             val eventDate = LocalDate.parse(decodedInfo["date"])
+            val eventTitle = decodedInfo["title"]
             val views = RemoteViews(context.packageName, R.layout.layout_widget)
 
+            views.setTextViewText(R.id.eventTitle, eventTitle)
             views.setTextViewText(R.id.eventDays, absoluteDistanceBetweenDates(eventDate).toString())
             views.setTextViewText(R.id.eventDistance, distanceBetweenLabel(context, eventDate))
             widgetManager.partiallyUpdateAppWidget(widgetId, views)
